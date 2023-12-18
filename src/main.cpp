@@ -14,10 +14,14 @@ class Button {
 		sf::Text text;
 		sf::Font font;
 		Padding padding;
+		sf::Color color;
+		sf::IntRect dimensions;
 
 		Button(std::string t, Padding p, sf::Font* font, sf::Color textColor, sf::IntRect buttonDims, sf::Color buttonColor)
 		{
 			padding = p;
+			color = buttonColor;
+			dimensions = buttonDims;
 			auto size = buttonDims.getSize();
 			auto position = buttonDims.getPosition();
 
@@ -49,6 +53,28 @@ class Button {
 		~Button(){
 		}
 
+		void onHover(){
+			if (button.getColor() == color){
+				button.setColor(sf::Color(0.75*color.r, 0.75*color.g, 0.75*color.b));
+			}
+		}
+
+		void offHover(){
+			if (button.getColor() != color){
+				button.setColor(color);
+			}
+		}
+
+		void handleMouse(sf::Vector2i mousePos){
+			auto size = dimensions.getSize();
+			auto pos  = dimensions.getPosition();
+			if (mousePos.x >= pos.x && mousePos.x <= pos.x + size.x && mousePos.y >= pos.y && mousePos.y <= pos.y+size.y){
+				onHover();
+			}
+			else{
+				offHover();
+			}
+		}
 };
 
 int main(){
@@ -66,7 +92,9 @@ int main(){
 			if(event.type == sf::Event::Closed){
 				window.close();
 			}
-
+			sf::IntRect buttonDims = b.dimensions;
+			sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+			b.handleMouse(mousePos);
 
 		}
 		window.clear(sf::Color::White);
