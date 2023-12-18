@@ -51,6 +51,9 @@ void Button::handleMouse(sf::Vector2i mousePos, bool clicked){
 		if (clicked){
 			buttonPressed = true;
 		}
+		else{
+			buttonPressed = false;
+		}
 	}
 	else{
 		offHover();

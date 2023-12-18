@@ -4,7 +4,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(RewardMe)
-add_executable(app src/main.cpp src/button.cpp)
+add_executable(app src/login.cpp src/button.cpp)
 
 target_include_directories(app PUBLIC ${PROJECT_SOURCE_DIR}/includes)
 
