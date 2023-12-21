@@ -1,2 +1,34 @@
 Front-end: SFML (C++), sqlite
 Back-end: Flask API (Python), mySQL
+
+Backend
+-------------
+
+mySql Db
+
+Table User
+---------+
+PK Userid / Oauth token
+FK 
+
+How the user uses the software?
+
+users have the option to set tasks, join tasks from others, make notes on tasks, they can also make other bigger tasks called jobs,
+support for a whiteboard, 
+
+Jobs -> categories of tasks -> many tasks -> notes/whiteboard/design tools
+
+AI tooling for generating goals of jobs
+
+Databases
+------------
+
+User PK UserID, access token, access token expiration, password, email 
+
+User_Jobs, PKFK UserID, PKFK JobID
+
+Jobs PK JobID, description, dateID
+
+Job_tasks, PKFK JobID, PKFK TaskID
+
+Task PK TaskID, heading, text, dateID
