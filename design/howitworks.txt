@@ -23,12 +23,18 @@ AI tooling for generating goals of jobs
 Databases
 ------------
 
-User PK UserID, access token, access token expiration, password, email 
+User PK UserID, firstName, lastName, accessToken, access token expiration, email, password, userName, pathToProfilePic, Description,  
 
 User_Jobs, PKFK UserID, PKFK JobID
 
-Jobs PK JobID, description, dateID
+Jobs PK JobID, styledDescription, date, PositionID, style
 
-Job_tasks, PKFK JobID, PKFK TaskID
+Job_tasks, PKFK JobID, PKFK TaskID, 
 
-Task PK TaskID, heading, text, dateID
+Task PK TaskID, heading, styledText, date, style
+
+Customisation tables
+
+Position PK PositionID, position, rotation, size
+
+Style PK styleID, showDate, color
