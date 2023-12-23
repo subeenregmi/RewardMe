@@ -4,16 +4,18 @@ import logging
 
 def tryReadFile(filename):
 	try:
-		return open(f"{filename}", "r")
+		f = open(f"{filename}", "r")
 		logging.info(f"Successfully read file: {filename}")
+		return f
 	except IOError:
 		logging.critical(f"Cannot open/find: {filename}")
 		return None
 
 def tryParseJson(fileObj):
 	try:
-		return json.load(fileObj)
+		js = json.load(fileObj)
 		logging.info("Successfully parsed json file.")
+		return js
 	except:
 		logging.critical("Failed to parse json file.")
 		return None

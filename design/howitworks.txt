@@ -23,7 +23,7 @@ AI tooling for generating goals of jobs
 Databases
 ------------
 
-User PK UserID, firstName, lastName, accessToken, access token expiration, email, password, userName, pathToProfilePic, Description,  
+User PK UserID, firstName, lastName, email, password, userName, pathToProfilePic, Description,  
 
 User_Jobs, PKFK UserID, PKFK JobID
 
