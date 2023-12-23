@@ -4,8 +4,16 @@ import json
 import logging
 import json_utils
 
+CONFIG_FILE="dbconfig.json"
+CONFIG_DIR="../"
+LOG_FILE="database.log"
+LOG_DIR="../logs/"
+
+CONFIG = CONFIG_DIR + CONFIG_FILE
+LOG = LOG_DIR + LOG_FILE
+
 def createConfigFile():
-	file = open("config.json", "w")
+	file = open(CONFIG, "w")
 	file.write(json.dumps({"db_host":"", "db_username":"", "db_password":""}, indent=4))
 	file.close()
 	logging.info("Created config.json file")
@@ -36,7 +44,7 @@ def main():
 		"required" : ["db_host", "db_username", "db_password"]
 	}
 
-	config = json_utils.tryReadFile("config.json")
+	config = json_utils.tryReadFile(CONFIG)
 
 	# if config.json not found in current directory
 	if config is None:
@@ -78,7 +86,7 @@ def main():
 	
 if __name__ == "__main__":
 	logging.basicConfig(
-		filename="database.log", 
+		filename=LOG, 
 		encoding="utf-8",
 		level=logging.INFO,
 		format="%(asctime)s | %(levelname)s | %(message)s",
