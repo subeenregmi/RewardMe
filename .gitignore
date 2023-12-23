@@ -35,4 +35,7 @@ build/*
 
 .venv
 
-databases/config.json
+config.json
+*.log
+.DS_Store
+__pycache__/*
